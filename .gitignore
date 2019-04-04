@@ -1,0 +1,6 @@
+venv
+static_root
+media_root
+*.pyc
+__pycache__/
+.idea/
