@@ -101,7 +101,7 @@ class FilterForm extends React.Component {
 
                 <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                     <Form.Item>
-                        <h1 className="ant-form-text">Filter Journals</h1>
+                        <h1 className="ant-form-text">Filter Articles</h1>
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator("searchTitle")(
@@ -141,21 +141,25 @@ class FilterForm extends React.Component {
                             </Select>
                         )}
                     </Form.Item>
+
                     <Form.Item>
                         {getFieldDecorator("date-range")(<RangePicker/>)}
                     </Form.Item>
+
                     <Form.Item>
                         {getFieldDecorator("minimum-views")(
                             <InputNumber min={0} placeholder="0"/>
                         )}
                         <span className="ant-form-text"> minimum views</span>
                     </Form.Item>
+
                     <Form.Item>
                         {getFieldDecorator("maximum-views")(
                             <InputNumber min={0} placeholder="0"/>
                         )}
                         <span className="ant-form-text"> maximum views</span>
                     </Form.Item>
+
                     <Form.Item>
                         {getFieldDecorator("reviewed")(
                             <Radio.Group>
@@ -164,6 +168,7 @@ class FilterForm extends React.Component {
                             </Radio.Group>
                         )}
                     </Form.Item>
+
                     <Form.Item wrapperCol={{span: 12, offset: 6}}>
                         <Button type="primary" htmlType="submit">
                             Submit

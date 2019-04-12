@@ -1,35 +1,35 @@
 import React from "react";
 
-const Result = ({ journal }) => {
-  return (
-    <div>
-      <li>
+const Result = ({journal}) => {
+    return (
+        <div>
+            <li>
         <span>
-          <b>Title:</b> {journal.title}{" "}
+          <strong>Title:</strong> {journal.title}{" "}
         </span>
-        <span>
-          <b>Author:</b> {journal.author.name}{" "}
+                <span>
+          <strong>Author:</strong> {journal.author.name}{" "}
         </span>
-        <span>
-          <b>Categories:</b>
-          {journal.categories.map(c => {
-            return <span key={c}>{c} </span>;
-          })}
+                <span>
+          <strong>Categories:</strong>
+                    {journal.categories.map(c => {
+                        return <span key={c}>{c} </span>;
+                    })}
         </span>
-        <span>
-          <b>Publish date:</b> {journal.publish_date}{" "}
+                <span>
+          <strong>Publish date:</strong> {journal.publish_date}{" "}
         </span>
-        <span>
-          <b>View count:</b> {journal.views}{" "}
+                <span>
+          <strong>View count:</strong> {journal.views}{" "}
         </span>
-        <span>
-          <b>Reviewed: </b>
-          {`${journal.reviewed}`}{" "}
+                <span>
+          <strong>Reviewed: </strong>
+                    {`${journal.reviewed}`}{" "}
         </span>
-      </li>
-      <hr />
-    </div>
-  );
+            </li>
+            <hr/>
+        </div>
+    );
 };
 
 export default Result;

@@ -46,6 +46,7 @@ class NormalLoginForm extends React.Component {
                                 />
                             )}
                         </FormItem>
+
                         <FormItem>
                             {getFieldDecorator("password", {
                                 rules: [
@@ -61,6 +62,7 @@ class NormalLoginForm extends React.Component {
                                 />
                             )}
                         </FormItem>
+
                         <FormItem>
                             <Button
                                 type="primary"

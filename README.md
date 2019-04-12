@@ -1,4 +1,4 @@
-# Django Advanced Filtering Form
+# Django Advanced Filtering Form with React, Redux
 
 [![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
 [![Django Version](https://img.shields.io/badge/django-2.2-brightgreen.svg)](https://djangoproject.com)
@@ -21,4 +21,12 @@ Run the development server:
 python manage.py runserver
 ```
 
-The project will be available at **127.0.0.1:8000/
+React setup:
+
+```bash
+npm i
+```
+
+```bash
+npm start
+```

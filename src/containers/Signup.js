@@ -63,6 +63,7 @@ class RegistrationForm extends React.Component {
                         />
                     )}
                 </FormItem>
+
                 <FormItem>
                     {getFieldDecorator("email", {
                         rules: [
@@ -82,6 +83,7 @@ class RegistrationForm extends React.Component {
                         />
                     )}
                 </FormItem>
+
                 <FormItem>
                     {getFieldDecorator("password", {
                         rules: [
@@ -101,6 +103,7 @@ class RegistrationForm extends React.Component {
                         />
                     )}
                 </FormItem>
+
                 <FormItem>
                     {getFieldDecorator("confirm", {
                         rules: [
@@ -121,6 +124,7 @@ class RegistrationForm extends React.Component {
                         />
                     )}
                 </FormItem>
+
                 <FormItem>
                     <Button
                         type="primary"

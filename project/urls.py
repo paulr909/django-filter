@@ -1,14 +1,9 @@
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path
-from core.views import filter_view
+from core.views import bootstrap_filter_view, ReactFilterView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', filter_view, name='filter-view')
+    path('', bootstrap_filter_view, name='bootstrap'),
+    path('api/', ReactFilterView.as_view(), name='react'),
 ]
-
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
