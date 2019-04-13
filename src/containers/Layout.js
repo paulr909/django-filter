@@ -38,8 +38,9 @@ class CustomLayout extends React.Component {
                             <Link to="/">List</Link>
                         </Breadcrumb.Item>
                     </Breadcrumb>
-                    <div style={{background: "#fff", padding: 24, minHeight: 280}}>
+                    <div style={{background: "#fff"}}>
                         {this.props.children}
+                        <br/>
                     </div>
                 </Content>
                 <Footer style={{textAlign: "center"}}>
