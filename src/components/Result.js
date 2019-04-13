@@ -10,7 +10,7 @@ const Result = ({journal}) => {
                 <span><strong>Categories: </strong>{journal.categories.map(c => {
                     return <span key={c}>{c} </span>;
                 })} </span>
-                <span><strong>Publish date: </strong>{moment(journal.publish_date).format('DD-MM-YYYY')} </span>
+                <span><strong>Publish date: </strong>{moment(journal.publish_date).format('YYYY-MM-DD')} </span>
                 <span><strong>View count: </strong>{journal.views} </span>
                 <span><strong>Reviewed: </strong>{`${journal.reviewed}`} </span>
             </li>
