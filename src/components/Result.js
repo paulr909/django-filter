@@ -1,10 +1,9 @@
 import React from 'react';
 import moment from 'moment'
 
-
 const Result = ({journal}) => {
     return (
-        <div style={{paddingRight: 40}}>
+        <div>
             <li>
                 <span><strong>Title: </strong>{journal.title} </span>
                 <span><strong>Author: </strong>{journal.author} </span>
