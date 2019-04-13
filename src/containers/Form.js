@@ -15,6 +15,7 @@ import Results from "./Results";
 const Search = Input.Search;
 const {Option} = Select;
 const {RangePicker} = DatePicker;
+const dateFormat = 'DD/MM/YYYY';
 
 class FilterForm extends React.Component {
     state = {
@@ -81,7 +82,7 @@ class FilterForm extends React.Component {
                         });
                     })
                     .catch(err => {
-                        this.setState({error: "There was an error"});
+                        this.setState({error: "Error loading data!"});
                         console.log(err);
                     });
                 console.log("Received values of form: ", values);
@@ -143,7 +144,7 @@ class FilterForm extends React.Component {
                     </Form.Item>
 
                     <Form.Item>
-                        {getFieldDecorator("date-range")(<RangePicker/>)}
+                        {getFieldDecorator("date-range")(<RangePicker format={dateFormat}/>)}
                     </Form.Item>
 
                     <Form.Item>
