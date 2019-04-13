@@ -52,9 +52,9 @@ class FilterForm extends React.Component {
                     : values["searchTitleOrAuthor"];
             const rangeValue = values["date-range"];
             const date_min =
-                rangeValue === undefined ? null : rangeValue[0].format("YYYY-MM-DD");
+                rangeValue === undefined ? null : rangeValue[0].format("DD-MM-YYYY");
             const date_max =
-                rangeValue === undefined ? null : rangeValue[1].format("YYYY-MM-DD");
+                rangeValue === undefined ? null : rangeValue[1].format("DD-MM-YYYY");
 
             this.setState({loading: true});
 
