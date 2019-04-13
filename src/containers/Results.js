@@ -2,7 +2,7 @@ import React from "react";
 import Result from "../components/Result";
 
 const Results = ({journals}) => (
-    <ul style={{listStyleType: 'none', paddingRight: 40}}>
+    <ul style={{listStyleType: 'none', maxWidth: '95%', paddingLeft: '5%'}}>
         {journals.map(j => {
             return <Result journal={j} key={j.id}/>;
         })}

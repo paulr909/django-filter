@@ -94,7 +94,7 @@ class FilterForm extends React.Component {
         const {error, loading, results} = this.state;
         const {getFieldDecorator} = this.props.form;
         const formItemLayout = {
-            wrapperCol: {span: 12, offset: 6}
+            wrapperCol: {span: 12, offset: 2}
         };
         return (
             <div>
@@ -170,7 +170,7 @@ class FilterForm extends React.Component {
                         )}
                     </Form.Item>
 
-                    <Form.Item wrapperCol={{span: 12, offset: 6}}>
+                    <Form.Item wrapperCol={{span: 6, offset: 2}}>
                         <Button type="primary" htmlType="submit">
                             Submit
                         </Button>
