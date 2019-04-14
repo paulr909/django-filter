@@ -84,7 +84,7 @@ class FilterForm extends React.Component {
         const {error, loading, results} = this.state;
         const {getFieldDecorator} = this.props.form;
         const formItemLayout = {
-            wrapperCol: {span: 12, offset: 2}
+            wrapperCol: {span: 8, offset: 2}
         };
         return (
             <div style={{paddingTop: 20}}>
@@ -93,7 +93,7 @@ class FilterForm extends React.Component {
                     <Form.Item>
                         {getFieldDecorator("searchTitle")(
                             <Search
-                                placeholder="Title contains..."
+                                placeholder="Title contains"
                                 onSearch={value => console.log(value)}
                                 enterButton
                             />
@@ -102,7 +102,7 @@ class FilterForm extends React.Component {
                     <Form.Item>
                         {getFieldDecorator("searchTitleID")(
                             <Search
-                                placeholder="Exact ID..."
+                                placeholder="Id"
                                 onSearch={value => console.log(value)}
                                 enterButton
                             />
@@ -111,7 +111,7 @@ class FilterForm extends React.Component {
                     <Form.Item>
                         {getFieldDecorator("searchTitleOrAuthor")(
                             <Search
-                                placeholder="Title or author..."
+                                placeholder="Title or author"
                                 onSearch={value => console.log(value)}
                                 enterButton
                             />
@@ -119,7 +119,7 @@ class FilterForm extends React.Component {
                     </Form.Item>
                     <Form.Item hasFeedback>
                         {getFieldDecorator("category")(
-                            <Select placeholder="Select a category">
+                            <Select placeholder="Category">
                                 <Option value="Sport">Sport</Option>
                                 <Option value="Lifestyle">Lifestyle</Option>
                                 <Option value="Music">Music</Option>
@@ -135,13 +135,13 @@ class FilterForm extends React.Component {
                         {getFieldDecorator("minimum-views")(
                             <InputNumber min={0} placeholder="0"/>
                         )}
-                        <span className="ant-form-text"> minimum views</span>
+                        <span className="ant-form-text"> Minimum views</span>
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator("maximum-views")(
                             <InputNumber min={0} placeholder="0"/>
                         )}
-                        <span className="ant-form-text"> maximum views</span>
+                        <span className="ant-form-text"> Maximum views</span>
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator("reviewed")(

@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Django Filter Form</title>
-    <link rel="icon" href="{% static 'django.ico' %}">
+    <link rel="icon" href="{% static "img/favicon.ico" %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
           integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
@@ -20,20 +20,16 @@
             <li class="nav-item active">
                 <a class="nav-link" href="/">Django Filter Form</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Link</a>
-            </li>
         </ul>
     </div>
 </nav>
 <main role="main" class="container">
-    <h3>Filter Articles</h3>
-    <form method="GET" action=".">
+    <form method="GET" action="">
         <div class="form-row">
-            <div class="form-group col-12">
+            <div class="form-group col-8">
                 <div class="input-group">
                     <input class="form-control py-2 border-right-0 border" type="search" name="title_contains"
-                           placeholder="Title contains..."/>
+                           placeholder="Title contains"/>
                     <span class="input-group-append">
                         <div class="input-group-text bg-transparent">
                             <i class="fa fa-search"></i>
@@ -43,10 +39,10 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-12">
+            <div class="form-group col-8">
                 <div class="input-group">
                     <input class="form-control py-2 border-right-0 border" type="search" name="id_exact"
-                           placeholder="ID exact..."/>
+                           placeholder="Id"/>
                     <span class="input-group-append">
                         <div class="input-group-text bg-transparent">
                             <i class="fa fa-search"></i>
@@ -56,10 +52,10 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-12">
+            <div class="form-group col-8">
                 <div class="input-group">
                     <input class="form-control py-2 border-right-0 border" type="search" name="title_or_author"
-                           placeholder="Title or author..."/>
+                           placeholder="Title or author"/>
                     <span class="input-group-append">
                         <div class="input-group-text bg-transparent">
                             <i class="fa fa-search"></i>
@@ -69,31 +65,32 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group col-md-2 col-lg-2">
-                <label for="viewCountMin">Minimum View Count</label>
-                <input type="number" min=0 class="form-control" id="viewCountMin" placeholder="0" name="view_count_min">
-            </div>
-            <div class="form-group col-md-2 col-lg-2">
-                <label for="viewCountMax">Maximum View Count</label>
-                <input type="number" min=0 class="form-control" id="viewCountMax" placeholder="10000?"
-                       name="view_count_max">
-            </div>
-            <div class="form-group col-md-2 col-lg-2">
-                <label for="publishDateMin">Publish date minimum</label>
-                <input type="date" class="form-control" id="publishDateMin" name="date_min">
-            </div>
-            <div class="form-group col-md-2 col-lg-2">
-                <label for="publishDateMax">Publish date maximum</label>
-                <input type="date" class="form-control" id="publishDateMax" name="date_max">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="categoryegory">Category</label>
-                <select id="categoryegory" class="form-control" name="categoryegory">
-                    <option selected>Choose...</option>
-                    {% for category in categoryegories %}
+            <div class="form-group col-md-8">
+                <select id="category" class="form-control" name="category">
+                    <option selected>Category</option>
+                    {% for category in categories %}
                         <option value="{{ category }}">{{ category }}</option>
                     {% endfor %}
                 </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-2 col-lg-2">
+                <label for="publishDateMin">Start date</label>
+                <input type="date" class="form-control" id="publishDateMin" name="date_min">
+            </div>
+            <div class="form-group col-md-2 col-lg-2">
+                <label for="publishDateMax">End date</label>
+                <input type="date" class="form-control" id="publishDateMax" name="date_max">
+            </div>
+            <div class="form-group col-md-2 col-lg-2">
+                <label for="viewCountMin">Minimum Views</label>
+                <input type="number" min=0 class="form-control" id="viewCountMin" placeholder="0" name="view_count_min">
+            </div>
+            <div class="form-group col-md-2 col-lg-2">
+                <label for="viewCountMax">Maximum Views</label>
+                <input type="number" min=0 class="form-control" id="viewCountMax" placeholder="10000?"
+                       name="view_count_max">
             </div>
         </div>
         <div class="form-group">
@@ -118,17 +115,16 @@
     <div class="row">
         <ul>
             {% for item in queryset %}
-                <li>
-                    {{ item.title }}
-                    <span>Author: {{ item.author.name }}</span>
-                    <span>
-                {% for category in item.categoryegories.all %}
-                    {{ category }}
-                {% endfor %}
+                <li><strong>Title: </strong>{{ item.title }}
+                    <span><strong>Author: </strong>{{ item.author }}</span>
+                    <span><strong>Category: </strong>
+                        {% for category in item.categories.all %}
+                            {{ category }}
+                        {% endfor %}
               </span>
-                    <span>Publish date: {{ item.publish_date }}</span>
-                    <span>View count: {{ item.views }}</span>
-                    <span>Reviewed: {{ item.reviewed }}</span>
+                    <span><strong>Publish date: </strong>{{ item.publish_date }}</span>
+                    <span><strong>View count: </strong> {{ item.views }}</span>
+                    <span><strong>Reviewed: </strong> {{ item.reviewed }}</span>
                 </li>
                 <hr/>
             {% empty %}

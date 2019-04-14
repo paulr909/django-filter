@@ -37,7 +37,7 @@ ROOT_URLCONF = 'project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [os.path.join(BASE_DIR, "core/templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,7 +74,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-uk'
 
 TIME_ZONE = 'UTC'
 
@@ -85,8 +85,6 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
