@@ -182,7 +182,7 @@ class FilterForm extends React.Component {
                         <Spin/>
                     </div>
                 ) : (
-                    <Results journals={results}/>
+                    <Results items={results}/>
                 )}
             </div>
         );

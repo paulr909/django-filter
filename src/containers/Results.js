@@ -1,10 +1,10 @@
 import React from "react";
 import Result from "../components/Result";
 
-const Results = ({journals}) => (
+const Results = ({items}) => (
     <ul style={{listStyleType: 'none', maxWidth: '95%', paddingLeft: '5%'}}>
-        {journals.map(j => {
-            return <Result journal={j} key={j.id}/>;
+        {items.map(i => {
+            return <Result item={i} key={i.id}/>;
         })}
     </ul>
 );
