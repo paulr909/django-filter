@@ -1,6 +1,6 @@
 import React from "react";
-import {Layout, Menu} from "antd";
 import {Link} from "react-router-dom";
+import {Layout, Menu} from "antd";
 
 const {Header, Content, Footer} = Layout;
 
@@ -9,7 +9,6 @@ class CustomLayout extends React.Component {
         return (
             <Layout className="layout">
                 <Header>
-                    <div className="logo"/>
                     <Menu
                         theme="dark"
                         mode="horizontal"
@@ -26,9 +25,6 @@ class CustomLayout extends React.Component {
                         <br/>
                     </div>
                 </Content>
-                <Footer style={{textAlign: "center"}}>
-                    Django React Filter Form
-                </Footer>
             </Layout>
         );
     }

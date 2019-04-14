@@ -7,7 +7,8 @@ import {
     Radio,
     Button,
     DatePicker,
-    Spin
+    Spin,
+    Empty
 } from "antd";
 import axios from "axios";
 import Results from "./Results";
@@ -27,15 +28,11 @@ class FilterForm extends React.Component {
     handleSubmit = e => {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
-            const category =
-                values["category"] === undefined ? null : values["category"];
-            const view_count_max =
-                values["maximum-views"] === undefined ? null : values["maximum-views"];
-            const view_count_min =
-                values["minimum-views"] === undefined ? null : values["minimum-views"];
+            const category = values["category"] === undefined ? null : values["category"];
+            const view_count_max = values["maximum-views"] === undefined ? null : values["maximum-views"];
+            const view_count_min = values["minimum-views"] === undefined ? null : values["minimum-views"];
             let notReviewed = null;
-            let reviewed =
-                values["reviewed"] === undefined ? null : values["reviewed"];
+            let reviewed = values["reviewed"] === undefined ? null : values["reviewed"];
             if (reviewed === "reviewed") {
                 reviewed = "on";
                 notReviewed = null;
@@ -43,19 +40,12 @@ class FilterForm extends React.Component {
                 reviewed = null;
                 notReviewed = "on";
             }
-            const title_contains =
-                values["searchTitle"] === undefined ? null : values["searchTitle"];
-            const id_exact =
-                values["searchTitleID"] === undefined ? null : values["searchTitleID"];
-            const title_or_author =
-                values["searchTitleOrAuthor"] === undefined
-                    ? null
-                    : values["searchTitleOrAuthor"];
+            const title_contains = values["searchTitle"] === undefined ? null : values["searchTitle"];
+            const id_exact = values["searchTitleID"] === undefined ? null : values["searchTitleID"];
+            const title_or_author = values["searchTitleOrAuthor"] === undefined ? null : values["searchTitleOrAuthor"];
             const rangeValue = values["date-range"];
-            const date_min =
-                rangeValue === undefined ? null : rangeValue[0].format("YYYY-MM-DD");
-            const date_max =
-                rangeValue === undefined ? null : rangeValue[1].format("YYYY-MM-DD");
+            const date_min = rangeValue === undefined ? null : rangeValue[0].format("YYYY-MM-DD");
+            const date_max = rangeValue === undefined ? null : rangeValue[1].format("YYYY-MM-DD");
 
             this.setState({loading: true});
 
@@ -97,13 +87,9 @@ class FilterForm extends React.Component {
             wrapperCol: {span: 12, offset: 2}
         };
         return (
-            <div>
-                {error && <span>There was an error</span>}
-
+            <div style={{paddingTop: 20}}>
+                {error && <Empty style={{margin: '0 auto', paddingBottom: 20}}/>}
                 <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                    <Form.Item>
-                        <h1 className="ant-form-text">Filter Articles</h1>
-                    </Form.Item>
                     <Form.Item>
                         {getFieldDecorator("searchTitle")(
                             <Search
@@ -142,25 +128,21 @@ class FilterForm extends React.Component {
                             </Select>
                         )}
                     </Form.Item>
-
                     <Form.Item>
                         {getFieldDecorator("date-range")(<RangePicker format={dateFormat}/>)}
                     </Form.Item>
-
                     <Form.Item>
                         {getFieldDecorator("minimum-views")(
                             <InputNumber min={0} placeholder="0"/>
                         )}
                         <span className="ant-form-text"> minimum views</span>
                     </Form.Item>
-
                     <Form.Item>
                         {getFieldDecorator("maximum-views")(
                             <InputNumber min={0} placeholder="0"/>
                         )}
                         <span className="ant-form-text"> maximum views</span>
                     </Form.Item>
-
                     <Form.Item>
                         {getFieldDecorator("reviewed")(
                             <Radio.Group>
@@ -169,7 +151,6 @@ class FilterForm extends React.Component {
                             </Radio.Group>
                         )}
                     </Form.Item>
-
                     <Form.Item wrapperCol={{span: 6, offset: 2}}>
                         <Button type="primary" htmlType="submit">
                             Submit
@@ -179,7 +160,7 @@ class FilterForm extends React.Component {
 
                 {loading ? (
                     <div className="loader-div">
-                        <Spin/>
+                        <Spin size="large"/>
                     </div>
                 ) : (
                     <Results items={results}/>
