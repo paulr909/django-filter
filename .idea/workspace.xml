@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3550dd8f-9f82-467a-9111-768b704a4b00" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,8 +52,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/templates/form.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+            <state relative-caret-position="339">
+              <caret line="132" column="13" lean-forward="true" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+              <folding>
+                <element signature="e#0#30#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,7 +151,6 @@
         <option value="$PROJECT_DIR$/src/store/actions/auth.js" />
         <option value="$PROJECT_DIR$/src/containers/Signup.js" />
         <option value="$PROJECT_DIR$/src/containers/Login.js" />
-        <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/templates/form.html" />
         <option value="$PROJECT_DIR$/project/urls.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -156,6 +167,7 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/containers/Form.js" />
+        <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/core/templates/form.html" />
       </list>
     </option>
@@ -305,7 +317,7 @@
       <workItem from="1555267752761" duration="1030000" />
       <workItem from="1555268970523" duration="1631000" />
       <workItem from="1555270623830" duration="1934000" />
-      <workItem from="1555326978239" duration="713000" />
+      <workItem from="1555326978239" duration="2999000" />
     </task>
     <task id="LOCAL-00001" summary="edit react">
       <created>1555097353828</created>
@@ -419,17 +431,31 @@
       <option name="project" value="LOCAL" />
       <updated>1555272542102</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="rename favicon.ico">
+      <created>1555327737900</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1555327737900</updated>
+    </task>
+    <task id="LOCAL-00018" summary="fix category form">
+      <created>1555338468247</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1555338468247</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44886000" />
+    <option name="totallyTimeSpent" value="47172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="17" width="1600" height="882" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.499534" visible="true" weight="0.2857143" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.499534" visible="true" weight="0.2857143" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.500466" side_tool="true" weight="0.28084832" />
       <window_info id="DB Browser" order="3" />
@@ -505,7 +531,9 @@
     <MESSAGE value="add no data component" />
     <MESSAGE value="rm unused component" />
     <MESSAGE value="edit templates" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit templates" />
+    <MESSAGE value="rename favicon.ico" />
+    <MESSAGE value="fix category form" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix category form" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/django-filter/wsgi/prod.py" />
@@ -591,16 +619,6 @@
     <entry file="file://$PROJECT_DIR$/src/containers/Signup.js" />
     <entry file="file://$PROJECT_DIR$/src/containers/Login.js" />
     <entry file="file://$PROJECT_DIR$/build/static/js/main.9cea3127.js" />
-    <entry file="file://$PROJECT_DIR$/core/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret lean-forward="true" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -755,10 +773,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="48" column="57" selection-start-line="48" selection-start-column="57" selection-end-line="48" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/form.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        <state relative-caret-position="339">
+          <caret line="132" column="13" lean-forward="true" selection-start-line="132" selection-start-column="13" selection-end-line="132" selection-end-column="13" />
         </state>
       </provider>
     </entry>
