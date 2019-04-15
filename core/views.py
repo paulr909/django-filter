@@ -46,7 +46,7 @@ def filter(request):
     if is_valid_param(date_max):
         qs = qs.filter(publish_date__lt=date_max)
 
-    if is_valid_param(category) and category != 'Choose...':
+    if is_valid_param(category) and category != 'Category':
         qs = qs.filter(categories__name=category)
 
     if reviewed == 'on':
