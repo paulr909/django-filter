@@ -3,10 +3,9 @@ import random
 from django.core.management.base import BaseCommand
 from core.models import Journal, Category, Author
 
-categories = ['Sport', 'Lifestyle', 'Music', 'Coding', 'Travelling'
-              ]
+categories = ["Sport", "Lifestyle", "Music", "Coding", "Travelling"]
 
-authors = ['John', 'Michael', 'Luke', 'Sally', 'Joe', 'Harry', 'Guy', 'Barbara']
+authors = ["John", "Michael", "Luke", "Sally", "Joe", "Harry", "Guy", "Barbara"]
 
 
 def generate_author_name():
@@ -38,14 +37,14 @@ def generate_publish_date():
 
 
 class Command(BaseCommand):
-
     def add_arguments(self, parser):
         parser.add_argument(
-            'file_name', type=str, help='The txt file that contains the content titles')
+            "file_name", type=str, help="The txt file that contains the content titles"
+        )
 
     def handle(self, *args, **options):
-        file_name = options['file_name']
-        with open(f'{file_name}.txt') as file:
+        file_name = options["file_name"]
+        with open(f"{file_name}.txt") as file:
             for row in file:
                 title = row
                 author_name = generate_author_name()
@@ -54,23 +53,20 @@ class Command(BaseCommand):
                 views = generate_view_count()
                 reviewed = generate_is_reviewed()
 
-                author = Author.objects.get_or_create(
-                    name=author_name
-                )
+                author = Author.objects.get_or_create(name=author_name)
 
                 journal = Journal(
                     title=title,
                     author=Author.objects.get(name=author_name),
                     publish_date=publish_date,
                     views=views,
-                    reviewed=reviewed
+                    reviewed=reviewed,
                 )
 
                 journal.save()
 
                 category = Category.objects.get_or_create(name=category_name)
 
-                journal.categories.add(
-                    Category.objects.get(name=category_name))
+                journal.categories.add(Category.objects.get(name=category_name))
 
-        self.stdout.write(self.style.SUCCESS('Data imported successfully!'))
+        self.stdout.write(self.style.SUCCESS("Data imported successfully!"))
