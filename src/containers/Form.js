@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   Select,
@@ -18,16 +18,14 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 const dateFormat = "DD/MM/YYYY";
 
-class FilterForm extends React.Component {
-  state = {
-    results: [],
-    loading: false,
-    error: null,
-  };
+const FilterForm = () => {
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e, form) => {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       const category =
         values["category"] === undefined ? null : values["category"];
       const view_count_max =
@@ -57,8 +55,7 @@ class FilterForm extends React.Component {
         rangeValue === undefined ? null : rangeValue[0].format("YYYY-MM-DD");
       const date_max =
         rangeValue === undefined ? null : rangeValue[1].format("YYYY-MM-DD");
-
-      this.setState({ loading: true });
+      setLoading(true);
 
       if (!err) {
         axios
@@ -77,13 +74,11 @@ class FilterForm extends React.Component {
             },
           })
           .then((res) => {
-            this.setState({
-              loading: false,
-              results: res.data,
-            });
+            setLoading(false);
+            setResults(res.data);
           })
           .catch((err) => {
-            this.setState({ error: "Error loading data!" });
+            setError({ error: "Error loading data!" });
             console.log(err);
           });
         console.log("Received values of form: ", values);
@@ -91,97 +86,93 @@ class FilterForm extends React.Component {
     });
   };
 
-  render() {
-    const { error, loading, results } = this.state;
-    const { getFieldDecorator } = this.props.form;
-    const formItemLayout = {
-      wrapperCol: { span: 8, offset: 2 },
-    };
-    return (
-      <div style={{ paddingTop: 20 }}>
-        {error && <Empty style={{ margin: "0 auto", paddingBottom: 20 }} />}
-        <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-          <Form.Item>
-            {getFieldDecorator("searchTitle")(
-              <Search
-                placeholder="Title contains"
-                onSearch={(value) => console.log(value)}
-                enterButton
-              />
-            )}
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator("searchTitleID")(
-              <Search
-                placeholder="Id"
-                onSearch={(value) => console.log(value)}
-                enterButton
-              />
-            )}
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator("searchTitleOrAuthor")(
-              <Search
-                placeholder="Title or author"
-                onSearch={(value) => console.log(value)}
-                enterButton
-              />
-            )}
-          </Form.Item>
-          <Form.Item hasFeedback>
-            {getFieldDecorator("category")(
-              <Select placeholder="Category">
-                <Option value="Sport">Sport</Option>
-                <Option value="Lifestyle">Lifestyle</Option>
-                <Option value="Music">Music</Option>
-                <Option value="Coding">Coding</Option>
-                <Option value="Travelling">Travelling</Option>
-              </Select>
-            )}
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator("date-range")(
-              <RangePicker format={dateFormat} />
-            )}
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator("minimum-views")(
-              <InputNumber min={0} placeholder="0" />
-            )}
-            <span className="ant-form-text"> Minimum views</span>
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator("maximum-views")(
-              <InputNumber min={0} placeholder="0" />
-            )}
-            <span className="ant-form-text"> Maximum views</span>
-          </Form.Item>
-          <Form.Item>
-            {getFieldDecorator("reviewed")(
-              <Radio.Group>
-                <Radio value="reviewed">Reviewed</Radio>
-                <Radio value="notReviewed">Not Reviewed</Radio>
-              </Radio.Group>
-            )}
-          </Form.Item>
-          <Form.Item wrapperCol={{ span: 6, offset: 2 }}>
-            <Button type="primary" htmlType="submit">
-              Submit
-            </Button>
-          </Form.Item>
-        </Form>
+  let getFieldDecorator, form;
+  ({ getFieldDecorator, form } = form);
+  const formItemLayout = {
+    wrapperCol: { span: 8, offset: 2 },
+  };
+  return (
+    <div style={{ paddingTop: 20 }}>
+      {error && <Empty style={{ margin: "0 auto", paddingBottom: 20 }} />}
+      <Form {...formItemLayout} onSubmit={handleSubmit}>
+        <Form.Item>
+          {getFieldDecorator("searchTitle")(
+            <Search
+              placeholder="Title contains"
+              onSearch={(value) => console.log(value)}
+              enterButton
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("searchTitleID")(
+            <Search
+              placeholder="Id"
+              onSearch={(value) => console.log(value)}
+              enterButton
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("searchTitleOrAuthor")(
+            <Search
+              placeholder="Title or author"
+              onSearch={(value) => console.log(value)}
+              enterButton
+            />
+          )}
+        </Form.Item>
+        <Form.Item hasFeedback>
+          {getFieldDecorator("category")(
+            <Select placeholder="Category">
+              <Option value="Sport">Sport</Option>
+              <Option value="Lifestyle">Lifestyle</Option>
+              <Option value="Music">Music</Option>
+              <Option value="Coding">Coding</Option>
+              <Option value="Travelling">Travelling</Option>
+            </Select>
+          )}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("date-range")(<RangePicker format={dateFormat} />)}
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("minimum-views")(
+            <InputNumber min={0} placeholder="0" />
+          )}
+          <span className="ant-form-text"> Minimum views</span>
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("maximum-views")(
+            <InputNumber min={0} placeholder="0" />
+          )}
+          <span className="ant-form-text"> Maximum views</span>
+        </Form.Item>
+        <Form.Item>
+          {getFieldDecorator("reviewed")(
+            <Radio.Group>
+              <Radio value="reviewed">Reviewed</Radio>
+              <Radio value="notReviewed">Not Reviewed</Radio>
+            </Radio.Group>
+          )}
+        </Form.Item>
+        <Form.Item wrapperCol={{ span: 6, offset: 2 }}>
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+      </Form>
 
-        {loading ? (
-          <div className="loader-div">
-            <Spin size="large" />
-          </div>
-        ) : (
-          <Results items={results} />
-        )}
-      </div>
-    );
-  }
-}
+      {loading ? (
+        <div className="loader-div">
+          <Spin size="large" />
+        </div>
+      ) : (
+        <Results items={results} />
+      )}
+    </div>
+  );
+};
 
 const WrappedFilterForm = Form.create({ name: "validate_other" })(FilterForm);
 
