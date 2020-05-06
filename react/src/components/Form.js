@@ -152,13 +152,13 @@ const FilterForm = props => {
           {getFieldDecorator("reviewed")(
             <Radio.Group>
               <Radio value="reviewed">Reviewed</Radio>
-              <Radio value="notReviewed">Not Reviewed</Radio>
+              <Radio value="notReviewed">Not reviewed</Radio>
             </Radio.Group>
           )}
         </Form.Item>
         <Form.Item wrapperCol={{ span: 6, offset: 2 }}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Search
           </Button>
         </Form.Item>
       </Form>
