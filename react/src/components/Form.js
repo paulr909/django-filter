@@ -8,7 +8,7 @@ import {
   Button,
   DatePicker,
   Spin,
-  Empty,
+  Empty
 } from "antd";
 import axios from "axios";
 import Results from "./Results";
@@ -18,14 +18,14 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 const dateFormat = "DD/MM/YYYY";
 
-const FilterForm = () => {
+const FilterForm = props => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const handleSubmit = (e, form) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    form.validateFields((err, values) => {
+    props.form.validateFields((err, values) => {
       const category =
         values["category"] === undefined ? null : values["category"];
       const view_count_max =
@@ -70,14 +70,14 @@ const FilterForm = () => {
               date_max,
               category,
               reviewed,
-              notReviewed,
-            },
+              notReviewed
+            }
           })
-          .then((res) => {
+          .then(res => {
             setLoading(false);
             setResults(res.data);
           })
-          .catch((err) => {
+          .catch(err => {
             setError({ error: "Error loading data!" });
             console.log(err);
           });
@@ -86,11 +86,11 @@ const FilterForm = () => {
     });
   };
 
-  let getFieldDecorator, form;
-  ({ getFieldDecorator, form } = form);
+  const { getFieldDecorator } = props.form;
   const formItemLayout = {
-    wrapperCol: { span: 8, offset: 2 },
+    wrapperCol: { span: 8, offset: 2 }
   };
+
   return (
     <div style={{ paddingTop: 20 }}>
       {error && <Empty style={{ margin: "0 auto", paddingBottom: 20 }} />}
@@ -99,7 +99,7 @@ const FilterForm = () => {
           {getFieldDecorator("searchTitle")(
             <Search
               placeholder="Title contains"
-              onSearch={(value) => console.log(value)}
+              onSearch={value => console.log(value)}
               enterButton
             />
           )}
@@ -108,7 +108,7 @@ const FilterForm = () => {
           {getFieldDecorator("searchTitleID")(
             <Search
               placeholder="Id"
-              onSearch={(value) => console.log(value)}
+              onSearch={value => console.log(value)}
               enterButton
             />
           )}
@@ -117,7 +117,7 @@ const FilterForm = () => {
           {getFieldDecorator("searchTitleOrAuthor")(
             <Search
               placeholder="Title or author"
-              onSearch={(value) => console.log(value)}
+              onSearch={value => console.log(value)}
               enterButton
             />
           )}

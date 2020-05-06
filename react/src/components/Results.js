@@ -1,5 +1,5 @@
 import React from "react";
-import Result from "../components/Result";
+import Result from "./Result";
 
 const Results = ({ items }) => (
   <ul style={{ listStyleType: "none", maxWidth: "95%", paddingLeft: "5%" }}>
