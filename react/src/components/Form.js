@@ -18,14 +18,14 @@ const { Option } = Select;
 const { RangePicker } = DatePicker;
 const dateFormat = "DD/MM/YYYY";
 
-const FilterForm = props => {
+const FilterForm = ({ form }) => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleSubmit = e => {
     e.preventDefault();
-    props.form.validateFields((err, values) => {
+    form.validateFields((err, values) => {
       const category =
         values["category"] === undefined ? null : values["category"];
       const view_count_max =
@@ -85,8 +85,7 @@ const FilterForm = props => {
       }
     });
   };
-
-  const { getFieldDecorator } = props.form;
+  const { getFieldDecorator } = form;
   const formItemLayout = {
     wrapperCol: { span: 8, offset: 2 }
   };
