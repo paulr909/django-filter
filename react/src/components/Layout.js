@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout, Menu } from "antd";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/auth";
@@ -14,21 +14,19 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["2"]}
+          defaultSelectedKeys={["1"]}
           style={{ lineHeight: "64px" }}
         >
           <Menu.Item>
-            <Link to="/">Django React Filter Form</Link>
+            <Link to="/">Home</Link>
           </Menu.Item>
           <Menu.Item>
             <Link to="/about">About</Link>
           </Menu.Item>
           {isAuthenticated ? (
-            <Menu.Item key="2" onClick={logout}>
-              Logout
-            </Menu.Item>
+            <Menu.Item onClick={logout}>Logout</Menu.Item>
           ) : (
-            <Menu.Item key="2">
+            <Menu.Item>
               <Link to="/login">Login</Link>
             </Menu.Item>
           )}
