@@ -4,7 +4,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/auth";
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 const CustomLayout = ({ isAuthenticated, logout, children }) => {
   return (
@@ -37,11 +37,9 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
             <Link to="/about">About</Link>
           </Breadcrumb.Item>
         </Breadcrumb>
-        <div style={{ background: "#fff", minHeight: 300 }}>{children}</div>
+        {/* sticky footer, height: "calc(100vh - 186px)" */}
+        <div style={{ background: "#fff" }}>{children}</div>
       </Content>
-      <Footer style={{ textAlign: "center" }}>
-        Django React Advanced Filter Form
-      </Footer>
     </Layout>
   );
 };

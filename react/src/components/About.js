@@ -1,7 +1,7 @@
 import React from "react";
 
 const About = () => (
-  <div style={{ maxWidth: "50%", height: "75vh" }}>
+  <div style={{ maxWidth: "50%" }}>
     <h1>About React</h1>
     <h2>Component-Based</h2>
     <p>

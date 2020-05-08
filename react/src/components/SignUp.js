@@ -42,7 +42,7 @@ const RegistrationForm = ({ form, onAuth, history }) => {
   const { getFieldDecorator } = form;
 
   return (
-    <Form onSubmit={handleSubmit} style={{ width: "30%", paddingBottom: 90 }}>
+    <Form onSubmit={handleSubmit} style={{ width: "30%" }}>
       <FormItem>
         {getFieldDecorator("userName", {
           rules: [{ required: true, message: "Please input your username!" }]
