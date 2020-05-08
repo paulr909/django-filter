@@ -70,11 +70,6 @@ const NormalLoginForm = ({ form, onAuth, history, error, loading }) => {
             >
               Login
             </Button>
-            Or
-            <NavLink style={{ marginRight: "10px" }} to="/signup/">
-              {" "}
-              signup
-            </NavLink>
           </FormItem>
         </Form>
       )}

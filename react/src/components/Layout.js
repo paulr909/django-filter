@@ -17,6 +17,12 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
           defaultSelectedKeys={["2"]}
           style={{ lineHeight: "64px" }}
         >
+          <Menu.Item>
+            <Link to="/">Django React Filter Form</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/about">About</Link>
+          </Menu.Item>
           {isAuthenticated ? (
             <Menu.Item key="2" onClick={logout}>
               Logout
@@ -26,18 +32,12 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
               <Link to="/login">Login</Link>
             </Menu.Item>
           )}
+          <Menu.Item>
+            <Link to="/signup">Sign Up</Link>
+          </Menu.Item>
         </Menu>
       </Header>
-      <Content style={{ padding: "0 50px" }}>
-        <Breadcrumb style={{ margin: "16px 0" }}>
-          <Breadcrumb.Item>
-            <Link to="/">Home</Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link to="/about">About</Link>
-          </Breadcrumb.Item>
-        </Breadcrumb>
-        {/* sticky footer, height: "calc(100vh - 186px)" */}
+      <Content style={{ padding: "20px 0" }}>
         <div style={{ background: "#fff" }}>{children}</div>
       </Content>
     </Layout>

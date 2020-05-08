@@ -121,13 +121,8 @@ const RegistrationForm = ({ form, onAuth, history }) => {
           htmlType="submit"
           style={{ marginRight: "10px" }}
         >
-          Signup
+          Sign Up
         </Button>
-        Or
-        <NavLink style={{ marginRight: "10px" }} to="/login/">
-          {" "}
-          login
-        </NavLink>
       </FormItem>
     </Form>
   );
