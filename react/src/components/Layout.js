@@ -1,32 +1,55 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { Layout, Menu } from "antd";
+import { Layout, Menu, Breadcrumb } from "antd";
+import { Link, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+import * as actions from "../store/actions/auth";
 
-const { Header, Content } = Layout;
+const { Header, Content, Footer } = Layout;
 
-const CustomLayout = ({ children }) => {
+const CustomLayout = ({ isAuthenticated, logout, children }) => {
   return (
     <Layout className="layout">
       <Header>
+        <div className="logo" />
         <Menu
           theme="dark"
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={["2"]}
           style={{ lineHeight: "64px" }}
         >
-          <Menu.Item key="1">
-            <Link to="/">Django React Filter Form</Link>
-          </Menu.Item>
+          {isAuthenticated ? (
+            <Menu.Item key="2" onClick={logout}>
+              Logout
+            </Menu.Item>
+          ) : (
+            <Menu.Item key="2">
+              <Link to="/login">Login</Link>
+            </Menu.Item>
+          )}
         </Menu>
       </Header>
       <Content style={{ padding: "0 50px" }}>
-        <div style={{ background: "#fff" }}>
-          {children}
-          <br />
-        </div>
+        <Breadcrumb style={{ margin: "16px 0" }}>
+          <Breadcrumb.Item>
+            <Link to="/">Home</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link to="/about">About</Link>
+          </Breadcrumb.Item>
+        </Breadcrumb>
+        <div style={{ background: "#fff", minHeight: 300 }}>{children}</div>
       </Content>
+      <Footer style={{ textAlign: "center" }}>
+        Django React Advanced Filter Form
+      </Footer>
     </Layout>
   );
 };
 
-export default CustomLayout;
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => dispatch(actions.logout())
+  };
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(CustomLayout));

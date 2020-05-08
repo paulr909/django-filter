@@ -2,7 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = "q1nltm@^2t77qi66czazj^2cc-05sgp9!deq=+v29i(tyybv3v"
+SECRET_KEY = "q1nltm@zazj^2cc-2t77qi66ceq=+05sgp9!d+v29i(tyybv3v"
 
 DEBUG = True
 
@@ -15,8 +15,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
     "corsheaders",
+    "rest_auth",
+    "rest_auth.registration",
     "rest_framework",
+    "rest_framework.authtoken",
     "core",
 ]
 
@@ -77,11 +84,17 @@ USE_L10N = True
 
 USE_TZ = True
 
+MEDIA_URL = "/media/"
+
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     "core/static/",
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media_root")
+
+SITE_ID = 1
 
 CORS_ORIGIN_WHITELIST = (
     "http://localhost:3000",
@@ -98,3 +111,9 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ),
 }
+
+CSRF_COOKIE_NAME = "csrftoken"
+
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_VERIFICATION = "none"

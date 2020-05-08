@@ -91,9 +91,13 @@ const FilterForm = ({ form }) => {
   };
 
   return (
-    <div style={{ paddingTop: 20 }}>
-      {error && <Empty style={{ margin: "0 auto", paddingBottom: 20 }} />}
-      <Form {...formItemLayout} onSubmit={handleSubmit}>
+    <div>
+      {error && <Empty style={{ paddingBottom: 20 }} />}
+      <Form
+        {...formItemLayout}
+        onSubmit={handleSubmit}
+        style={{ width: "100%", marginLeft: "-125px" }}
+      >
         <Form.Item>
           {getFieldDecorator("searchTitle")(
             <Search
