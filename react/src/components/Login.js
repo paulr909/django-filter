@@ -25,7 +25,7 @@ const NormalLoginForm = ({ form, onAuth, history, error, loading }) => {
 
   const { getFieldDecorator } = form;
   return (
-    <div style={{ width: "30%" }}>
+    <div style={{ width: "30%", marginLeft: 90 }}>
       {errorMessage}
       {loading ? (
         <Spin indicator={antIcon} />

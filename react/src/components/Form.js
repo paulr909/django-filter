@@ -96,7 +96,7 @@ const FilterForm = ({ form }) => {
       <Form
         {...formItemLayout}
         onSubmit={handleSubmit}
-        style={{ width: "100%", marginLeft: "-125px" }}
+        style={{ width: "100%", paddingBottom: 20 }}
       >
         <Form.Item>
           {getFieldDecorator("searchTitle")(
