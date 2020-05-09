@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import BaseRouter from "./routes";
@@ -7,17 +7,15 @@ import CustomLayout from "./components/Layout";
 import "antd/dist/antd.css";
 import "./style.css";
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <CustomLayout {...this.props}>
-          <BaseRouter />
-        </CustomLayout>
-      </Router>
-    );
-  }
-}
+const App = props => {
+  return (
+    <Router>
+      <CustomLayout {...props}>
+        <BaseRouter />
+      </CustomLayout>
+    </Router>
+  );
+};
 
 const mapStateToProps = state => {
   return {
