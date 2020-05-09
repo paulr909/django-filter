@@ -33,6 +33,13 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
               <Link to="/login">Login</Link>
             </Menu.Item>
           )}
+          <Menu.Item>
+            {isAuthenticated ? (
+              <span>Welcome</span>
+            ) : (
+              <span>You need to be logged in to use the filter form?</span>
+            )}
+          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "20px 0" }}>
