@@ -7,9 +7,9 @@ import CustomLayout from "./components/Layout";
 import "antd/dist/antd.css";
 import "./style.css";
 
-const onTryAutoSignup = () => {};
-
 const App = props => {
+  const onTryAutoSignup = () => {};
+
   useEffect(() => {
     onTryAutoSignup();
   }, []);
