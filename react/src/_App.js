@@ -1,19 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import BaseRouter from "./routes";
-import * as actions from "./store/actions/auth";
+import { authCheckState } from "./store/actions/auth";
 import CustomLayout from "./components/Layout";
 import "antd/dist/antd.css";
 import "./style.css";
 
 const App = props => {
-  const onTryAutoSignup = () => {};
-
-  useEffect(() => {
-    onTryAutoSignup();
-  }, []);
-
   return (
     <Router>
       <CustomLayout children={props}>
@@ -29,10 +23,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onTryAutoSignup: () => dispatch(actions.authCheckState())
-  };
+const mapDispatchToProps = {
+  authCheckState
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

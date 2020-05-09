@@ -2,7 +2,7 @@ import React from "react";
 import { Layout, Menu } from "antd";
 import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import * as actions from "../store/actions/auth";
+import { logout } from "../store/actions/auth";
 
 const { Header, Content } = Layout;
 
@@ -42,10 +42,8 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
   );
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    logout: () => dispatch(actions.logout())
-  };
+const mapDispatchToProps = {
+  logout
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(CustomLayout));
