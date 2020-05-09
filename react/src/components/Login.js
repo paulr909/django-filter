@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Icon, Input, Button, Spin } from "antd";
 import { connect } from "react-redux";
-import * as actions from "../store/actions/auth";
+import { authLogin } from "../store/actions/auth";
 
 const FormItem = Form.Item;
 const antIcon = <Icon type="loading" style={{ fontSize: 24 }} spin />;
@@ -85,11 +85,8 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAuth: (username, password) =>
-      dispatch(actions.authLogin(username, password))
-  };
+const mapDispatchToProps = {
+  onAuth: (username, password) => authLogin(username, password)
 };
 
 export default connect(

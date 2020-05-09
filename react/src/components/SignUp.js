@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Input, Icon, Button } from "antd";
 import { connect } from "react-redux";
-import * as actions from "../store/actions/auth";
+import { authSignup } from "../store/actions/auth";
 
 const FormItem = Form.Item;
 
@@ -136,11 +136,9 @@ const mapStateToProps = state => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAuth: (username, email, password1, password2) =>
-      dispatch(actions.authSignup(username, email, password1, password2))
-  };
+const mapDispatchToProps = {
+  onAuth: (username, email, password1, password2) =>
+    authSignup(username, email, password1, password2)
 };
 
 export default connect(
