@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import BaseRouter from "./routes";
@@ -7,21 +7,21 @@ import CustomLayout from "./components/Layout";
 import "antd/dist/antd.css";
 import "./style.css";
 
-class App extends Component {
-  componentDidMount() {
-    this.props.onTryAutoSignup();
-  }
+const onTryAutoSignup = () => {};
 
-  render() {
-    return (
-      <Router>
-        <CustomLayout {...this.props}>
-          <BaseRouter />
-        </CustomLayout>
-      </Router>
-    );
-  }
-}
+const App = props => {
+  useEffect(() => {
+    onTryAutoSignup();
+  }, []);
+
+  return (
+    <Router>
+      <CustomLayout children={props}>
+        <BaseRouter />
+      </CustomLayout>
+    </Router>
+  );
+};
 
 const mapStateToProps = state => {
   return {

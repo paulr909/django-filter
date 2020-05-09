@@ -23,6 +23,9 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
           <Menu.Item>
             <Link to="/about">About</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/signup">Sign Up</Link>
+          </Menu.Item>
           {isAuthenticated ? (
             <Menu.Item onClick={logout}>Logout</Menu.Item>
           ) : (
@@ -30,9 +33,6 @@ const CustomLayout = ({ isAuthenticated, logout, children }) => {
               <Link to="/login">Login</Link>
             </Menu.Item>
           )}
-          <Menu.Item>
-            <Link to="/signup">Sign Up</Link>
-          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: "20px 0" }}>
