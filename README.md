@@ -24,7 +24,7 @@ python manage.py runserver
 React setup:
 
 ```
-yarn i
+yarn install
 ```
 
 ```
