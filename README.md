@@ -1,5 +1,5 @@
 [![Python Version](https://img.shields.io/badge/python-3.8-brightgreen.svg)](https://python.org)
-[![Django Version](https://img.shields.io/badge/django-3.0.6-brightgreen.svg)](https://djangoproject.com)
+[![Django Version](https://img.shields.io/badge/django-4.0.1-brightgreen.svg)](https://djangoproject.com)
 
 # Django Advanced Filtering Form with React
 
@@ -10,23 +10,18 @@ git clone https://paulrogers@bitbucket.org/paulrogers/django-filter.git
 ```
 
 Install the requirements:
-
 ```
 pip install -r requirements.txt
 ```
 
 Run the development server:
-
 ```
 python manage.py runserver
 ```
 
 React setup:
+```
+npm install
 
-```
-yarn install
-```
-
-```
-yarn start
+npm start
 ```

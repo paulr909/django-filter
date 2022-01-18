@@ -2,7 +2,8 @@ from django.db.models import Q
 from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.response import Response
-from .models import Journal, Category
+
+from .models import Category, Journal
 from .serializers import JournalSerializer
 
 

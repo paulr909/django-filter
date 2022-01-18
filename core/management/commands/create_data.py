@@ -1,7 +1,9 @@
 import datetime
 import random
+
 from django.core.management.base import BaseCommand
-from core.models import Journal, Category, Author
+
+from core.models import Author, Category, Journal
 
 categories = ["Sport", "Lifestyle", "Music", "Coding", "Travelling"]
 

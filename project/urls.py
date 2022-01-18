@@ -1,6 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
-from core.views import bootstrap_filter_view, ReactFilterView
+from django.urls import include, path
+
+from core.views import ReactFilterView, bootstrap_filter_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
